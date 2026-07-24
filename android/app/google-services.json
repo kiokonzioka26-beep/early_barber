@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "441075123976",
+    "project_id": "early-barber",
+    "storage_bucket": "early-barber.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:441075123976:android:c1a0e50171795c51410ebd",
+        "android_client_info": {
+          "package_name": "com.example.flutter_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0YClgmuTR3qApKqFxch7h5LFPGM3WSEs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
