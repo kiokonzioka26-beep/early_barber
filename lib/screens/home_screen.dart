@@ -22,6 +22,26 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
+    _loadUserData();
+  }
+
+  Future<void> _loadUserData() async {
+    if (currentUser == null) return;
+
+    DocumentSnapshot userDoc = await FirebaseFirestore.instance
+        .collection('users')
+        .doc(currentUser!.uid)
+        .get();
+
+    if (userDoc.exists) {
+      Map<String, dynamic> data = userDoc.data() as Map<String, dynamic>;
+
+      userName = data['name'] ?? "";
+      userEmail = data['email'] ?? "";
+      userRole = data['role'] ?? "";
+
+      setState(() {});
+    }
   }
 
   @override
@@ -38,9 +58,9 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             const SizedBox(height: 10),
 
-            const Text(
-              "Welcome to Early Barber 👋",
-              style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+            Text(
+              "Welcome ${userName.isEmpty ? 'to Early Barber' : userName} 👋",
+              style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
             ),
 
             const SizedBox(height: 10),
